@@ -1,0 +1,113 @@
+@import "fonts";
+@import "colors";
+@import "grid";
+@import "slider";
+
+body {
+  font-family: "Open Sans", sans-serif;
+  background-color: $app-background;
+  min-height: 100vh;
+  position: relative;
+}
+
+// bring all browsers to default style
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+a:link,
+a:visited,
+a:hover,
+a:active {
+  color: transparent;
+}
+
+// make images responsive
+img {
+  width: auto;
+  max-width: 100%;
+  height: auto !important;
+}
+
+// header section
+.logo {
+  max-width: 200px;
+  padding-top: 0.3em;
+  margin: 0 auto;
+}
+
+.slogan {
+  text-align: center;
+
+  &-text {
+    display: none;
+  }
+}
+
+// footer section
+footer {
+  display: none;
+}
+
+.copyright {
+  padding: 0.2em;
+  text-align: center;
+  font-size: 12px;
+  color: darken($danger, 10);
+}
+
+// different sizes rules
+// variables interpolation
+@media #{$breakpoint-small} {
+  .logo {
+    max-width: 220px;
+    margin: 0;
+  }
+
+  .slogan {
+    text-align: left;
+
+    &-text {
+      font-size: 1em;
+      display: block;
+    }
+  }
+
+  footer {
+    position: absolute;
+    bottom: 10px;
+    display: block;
+  }
+}
+
+@media #{$breakpoint-medium} {
+  .wrapper {
+    width: 95%;
+    max-width: $grid-max-width;
+  }
+
+  @for $i from 1 through $grid-columns {
+    .column-#{$i} {
+      width: 100% / $grid-columns * $i;
+    }
+  }
+}
+
+@media #{$breakpoint-large} {
+  .wrapper {
+    width: 95%;
+    max-width: $grid-max-width;
+  }
+
+  @for $i from 1 through $grid-columns {
+    .column-#{$i} {
+      width: 100% / $grid-columns * $i;
+    }
+  }
+}
